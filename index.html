@@ -5,7 +5,9 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
   <title></title>
   <style type="text/css">
+
   body {
+    min-width: 100%!important;
     width: 100%;
     height: 100%;
     margin: 0;
@@ -23,39 +25,135 @@
     margin: 0;
     padding: 0;
     top: 0;
-    table-layout: fixed;
     border-collapse: collapse;
     width: 100%;
     height: 100%;
     background-image: url("http://janina.dev.mxm.ch/playground/responsive-nl/img/bknd.jpg");
     background-repeat: repeat-x;
   }
-  #content {
+  .content {
+    width: 100%;
     max-width: 580px;
     background-color: #ffffff;
   }
-
+  .mobile_only {
+    display: none;
+    font-size: 0;
+    max-height: 0;
+    line-height: 0;
+    mso-hide: all;
+  }
+ 
   /** 
   * APPLE MAIL MAX-WIDTH FIX 
   * -----------------------------------------------------------------------------**/
-  @media only screen and (min-device-width: 581px) {
-      #content {
+  @media only screen and (min-device-width: 600px) {
+      .content {
         width: 580px !important;
       }
   }
-  </style>
+
+  /** 
+  * DELIVER RESPONSIVE CONTENT
+  * -----------------------------------------------------------------------------**/
+  @media only screen and (max-device-width: 568px;) {
+    body[yahoo] .mobile_only {
+          width: 300px !important;
+          overflow:visible !important;
+          float: none !important;
+          display: block !important;
+      }
+      body[yahoo] .desktop_only { 
+          display: none; 
+          width: 0px;
+          overflow: hidden;
+          float: left;
+      }
+    }
+
+  /** 
+  * RESPONSIVE CONTENT FIX FOR: 
+  * -----------------------------------------------------------------------------**/
+  @media only screen and (min-device-width: 320px) and (max-device-width: 568px) and (-webkit-device-pixel-ratio: 2) and (device-aspect-ratio: 40/71) {
+    .mobile_only {
+        width: 320px !important;
+        overflow:visible !important;
+        float: none !important;
+        display: block !important;
+    }
+    .desktop_only { 
+        display: none; 
+        width: 0px;
+        overflow: hidden;
+        float: left;
+    }
+  }
+</style>
 </head>
-  <body background="http://janina.dev.mxm.ch/playground/responsive-nl/img/bknd.jpg">
+  <body yahoo background="http://janina.dev.mxm.ch/playground/responsive-nl/img/bknd.jpg">
     <table id="wrapper" width="100%" border="1" cellspacing="0" cellpadding="0" align="center">
       <tr valign="top">
         <td valign="top">
-          <table id="content" cellspacing="0" cellpadding="0" align="center" bgcolor="#ffffff">
-            <tr valign="top">
-              <td valign="top" bgcolor="#ffffff" align="center" valign="middle" style="padding: 15px;">
-                <img class="fix" src="http://placehold.it/550x240.jpg" width="100%" border="0" alt="Titelbild" />
-              </td>
-            </tr>  
-          </table> <!-- content --> 
+          <!--[if (gte mso 9)|(IE)]>
+          <table width="580" align="center" cellpadding="0" cellspacing="0" border="0">
+              <tr>
+                  <td>
+                      <![endif]-->
+                      <table class="content" cellspacing="0" width="100%" cellpadding="0" align="center" bgcolor="#ffffff">
+                        <tr valign="top">
+                          <td bgcolor="#ffffff" align="center" valign="middle" style="padding: 15px;">
+                            <img src="http://placehold.it/550x240.jpg" width="100%" border="0" alt="Titelbild" />
+                          </td>
+                        </tr>  
+                        <tr>
+                          <td height="30">&nbsp;</td>
+                        </tr>
+                        <tr>
+                          <td style="font-family: Arial; color: black; font-size: 13px; line-height: 17px; padding: 15px;">
+                              Sehr  geehrter Testuser<br /><br />
+                              Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Aenean commodo ligula eget dolor. Aenean massa. Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Donec quam felis, ultricies nec, pellentesque eu, pretium quis, sem. Nulla consequat massa quis enim. Donec pede justo, fringilla vel, aliquet nec, vulputate eget, arcu. In enim justo, rhoncus ut, imperdiet a, venenatis vitae, justo. 
+                              <br /><br />
+                              Nullam dictum felis eu pede mollis pretium. Integer tincidunt. Cras dapibus. Vivamus elementum semper nisi. Aenean vulputate eleifend tellus. Aenean leo ligula, porttitor eu, consequat vitae.
+                          </td>
+                        </tr>
+                        <tr>
+                          <td height="30">&nbsp;</td>
+                        </tr>
+                        <tr>
+                          <td align="center" valign="middle" style="padding: 15px;">
+                            <div class="mobile_only" style="width:0px;overflow:hidden;float:left;display:none;">
+                              <table>
+                                <tr valign="top" width="100%">
+                                  <td>
+                                    <img src="http://placehold.it/320x105" width="100%">
+                                  </td>
+                                </tr>
+                                <tr valign="top">
+                                  <td align="left" valign="top" style="font-family: Arial; color: black; font-size: 13px; line-height: 17px;"> 
+                                    Nullam dictum felis eu pede mollis pretium. Integer tincidunt. Cras dapibus. Vivamus elementum semper nisi. Aenean vulputate eleifend tellus. Aenean leo ligula, porttitor eu, consequat vitae.
+                                  </td>
+                                </tr>
+                            </table>
+                            </div>
+                            <div class="desktop_only">
+                              <table>
+                                <tr valign="top">
+                                  <td width="175"><img src="http://placehold.it/175x105" width="100%"></td>
+                                  <td width="15">&nbsp;</td>
+                                  <td align="left" valign="top" style="font-family: Arial; color: black; font-size: 13px; line-height: 17px;"> 
+                                    Nullam dictum felis eu pede mollis pretium. Integer tincidunt. Cras dapibus. Vivamus elementum semper nisi. Aenean vulputate eleifend tellus. Aenean leo ligula, porttitor eu, consequat vitae.
+                                  </td>
+                                </tr>
+                              </table>  
+                            </div>
+                          </td>
+                        </tr>
+                      </table> <!-- content --> 
+                  <!--[if (gte mso 9)|(IE)]>
+                </td>
+            </tr>
+          </table>
+        <![endif]-->
         </td>
       </tr>        
     </table> <!-- wrapper -->
